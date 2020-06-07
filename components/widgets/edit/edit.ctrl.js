@@ -5,14 +5,17 @@
         .module('app.widgets.edit')
         .controller('editCtrl', editCtrl);
 
-    editCtrl.$inject = ['widgetsService', '$stateParams'];
+    editCtrl.$inject = ['widgetsService', '$stateParams', '$state'];
 
-    function editCtrl(widgetsService, $stateParams) {
+    function editCtrl(widgetsService, $stateParams, $state) {
         const vm = this;
         vm.id = $stateParams.id;
         vm.data = widgetsService.get(vm.id);
-        vm.saveWidets = () => widgetsService.add(vm.data);
-        vm.addPair = (i) => vm.data.pairs.splice(i, 0, { key: '', value: '' });
+        vm.saveWidget = () => {
+            widgetsService.add(vm.data);
+            $state.go('widgets.summary.detail', { id: vm.id });
+        };
+        vm.addPair = (i) => vm.data.pairs.splice(i + 1, 0, { key: '', value: '' });
         vm.deletePair = (i) => vm.data.pairs.splice(i, 1);
     }
 })();
