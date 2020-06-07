@@ -1,0 +1,48 @@
+<div class="panel panel-primary">
+    <div class="panel-heading text-center">
+        <div class="panel-title">
+            Widget Add
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col">
+                <form ng-submit="add.saveWidget()">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" ng-model="add.data.name" required
+                            placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="number">Number</label>
+                        <input type="number" class="form-control" id="number" required placeholder="Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="keyValuesPairs">Key / Values Pairs</label>
+                        <div class="row form-group" ng-repeat="pair in add.data.pairs">
+                            <div class="col-sm-1 col-centered">{{$index + 1}}</div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="key" ng-model="pair.key" required
+                                    placeholder="Key">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="value" ng-model="pair.value" required
+                                    placeholder="Value">
+                            </div>
+                            <div class="col-sm-3">
+                                <button type="button" class="btn btn-primary" ng-click="add.addPair($index)"><span
+                                        class="fas fa-plus"></span></button>
+                                <button type="button" class="btn btn-primary" ng-disabled="add.data.pairs.length === 1"
+                                    ng-click="add.deletePair($index)"><span class="fas fa-minus"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group pull-right">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-primary" ui-sref="widgets.summary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
