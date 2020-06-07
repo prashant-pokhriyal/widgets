@@ -1,0 +1,44 @@
+<div class="card card-primary">
+    <div class="card-header text-center">
+        <span ui-sref="widgets.summary"><span class="fas fa-times float-right"></span></span>
+        <div class="card-title">
+            Widget {{detail.data.number}} Details
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" ng-model="detail.data.name" readonly
+                            placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="number">Number</label>
+                        <input type="number" class="form-control" id="number" ng-model="detail.data.number" readonly
+                            placeholder="Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="keyValuesPairs">Key / Values Pairs</label>
+                        <div class="row" ng-repeat="pair in detail.data.pairs track by $index">
+                            <div class="col-sm-1 col-centered">{{$index + 1}}.</div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="key" ng-model="pair.key" readonly
+                                    placeholder="Key">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="value" ng-model="pair.value" readonly
+                                    placeholder="Value">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group pull-right">
+                        <button type="button" class="btn btn-outline-primary" ui-sref="widgets.edit({id: detail.id})"><span
+                                class="fas fa-pencil-alt"></span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

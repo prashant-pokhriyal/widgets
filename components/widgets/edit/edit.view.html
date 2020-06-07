@@ -1,0 +1,50 @@
+<div class="card card-primary">
+    <div class="card-header text-center">
+        <div class="card-title">
+            Widgets Edit
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <form ng-submit="edit.updateWidget()">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" ng-model="edit.data.name" required
+                            placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="number">Number</label>
+                        <input type="number" class="form-control" id="number" ng-model="edit.data.number" required
+                            placeholder="Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="keyValuesPairs">Key / Values Pairs</label>
+                        <div class="row form-group" ng-repeat="pair in edit.data.pairs track by $index">
+                            <div class="col-sm-1 col-centered">{{$index + 1}}</div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="key" ng-model="pair.key" required
+                                    placeholder="Key">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="value" ng-model="pair.value" required
+                                    placeholder="Value">
+                            </div>
+                            <div class="col-sm-3">
+                                <button type="button" class="btn btn-outline-primary" ng-click="edit.addPair($index)"><span
+                                        class="fas fa-plus"></span></button>
+                                <button type="button" class="btn btn-outline-primary" ng-disabled="edit.data.pairs.length === 1"
+                                    ng-click="edit.deletePair($index)"><span class="fas fa-minus"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group pull-right">
+                        <button type="submit" class="btn btn-outline-primary">Save</button>
+                        <button type="button" class="btn btn-outline-primary"
+                            ui-sref="widgets.summary.detail({id: edit.id})">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
