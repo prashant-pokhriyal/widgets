@@ -11,6 +11,9 @@
         const vm = this;
         vm.id = $stateParams.id;
         vm.data = widgetsService.get(vm.id);
+
+        if (vm.data === undefined) $state.go('widget.summary');
+
         vm.updateWidget = () => {
             widgetsService.update(vm.id, vm.data);
             $state.go('widgets.summary.detail', { id: vm.id });
