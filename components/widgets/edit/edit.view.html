@@ -31,16 +31,16 @@
                                     placeholder="Value">
                             </div>
                             <div class="col-sm-3">
-                                <button type="button" class="btn btn-primary" ng-click="edit.addPair($index)"><span
+                                <button type="button" class="btn btn-outline-primary" ng-click="edit.addPair($index)"><span
                                         class="fas fa-plus"></span></button>
-                                <button type="button" class="btn btn-primary" ng-disabled="edit.data.pairs.length === 1"
+                                <button type="button" class="btn btn-outline-primary" ng-disabled="edit.data.pairs.length === 1"
                                     ng-click="edit.deletePair($index)"><span class="fas fa-minus"></span></button>
                             </div>
                         </div>
                     </div>
                     <div class="form-group pull-right">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-primary"
+                        <button type="submit" class="btn btn-outline-primary">Save</button>
+                        <button type="button" class="btn btn-outline-primary"
                             ui-sref="widgets.summary.detail({id: edit.id})">Cancel</button>
                     </div>
                 </form>

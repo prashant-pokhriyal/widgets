@@ -19,10 +19,10 @@
                             <tr ng-repeat="widget in summary.widgets track by $index">
                                 <td>{{widget.name}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary"
+                                    <button type="button" class="btn btn-outline-primary"
                                         ui-sref="widgets.summary.detail({id: $index})" title="Widget Details"><span
                                             class="fas fa-info"></span></button>
-                                    <button type="button" class="btn btn-danger" ng-click="summary.deleteWidget($index)"
+                                    <button type="button" class="btn btn-outline-danger" ng-click="summary.deleteWidget($index)"
                                         title="Delete Widget"><span class="fas fa-times"></button>
                                 </td>
                             </tr>
@@ -30,7 +30,7 @@
                     </table>
                 </div>
                 <div class="col-sm-12">
-                    <button type="button" class="btn btn-primary" ui-sref="widgets.add" title="Add Widget"><span
+                    <button type="button" class="btn btn-outline-primary" ui-sref="widgets.add" title="Add Widget"><span
                             class="fas fa-plus"></span></button>
                 </div>
             </div>

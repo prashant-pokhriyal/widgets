@@ -30,16 +30,16 @@
                                     placeholder="Value">
                             </div>
                             <div class="col-sm-3">
-                                <button type="button" class="btn btn-primary" ng-click="add.addPair($index)"><span
+                                <button type="button" class="btn btn-outline-primary" ng-click="add.addPair($index)"><span
                                         class="fas fa-plus"></span></button>
-                                <button type="button" class="btn btn-primary" ng-disabled="add.data.pairs.length === 1"
+                                <button type="button" class="btn btn-outline-primary" ng-disabled="add.data.pairs.length === 1"
                                     ng-click="add.deletePair($index)"><span class="fas fa-minus"></span></button>
                             </div>
                         </div>
                     </div>
                     <div class="form-group pull-right">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-primary" ui-sref="widgets.summary">Cancel</button>
+                        <button type="submit" class="btn btn-outline-primary">Save</button>
+                        <button type="button" class="btn btn-outline-primary" ui-sref="widgets.summary">Cancel</button>
                     </div>
                 </form>
             </div>
