@@ -1,35 +1,42 @@
-<div class="panel panel-primary">
-    <div class="panel-heading text-center">
-        <div class="panel-title">
-            Widgets Summary
-        </div>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-sm-12">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="widget in summary.widgets">
-                            <td>{{widget.name}}</td>
-                            <td>
-                                <button type="button" class="btn btn-primary"
-                                    ui-sref="widgets.detail({id: $index})">Details</button>
-                                <button type="button" class="btn btn-danger"
-                                    ng-click="summary.deleteWidget($index)">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-sm-12">
-                <button type="button" class="btn btn-primary" ui-sref="widgets.add">Add Widget</button>
+<div class="col col-lg-6">
+    <div class="card card-primary">
+        <div class="card-header text-center">
+            <div class="card-title">
+                Widgets Summary
             </div>
         </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="widget in summary.widgets">
+                                <td>{{widget.name}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary"
+                                        ui-sref="widgets.summary.detail({id: $index})" title="Widget Details"><span
+                                            class="fas fa-info"></span></button>
+                                    <button type="button" class="btn btn-danger" ng-click="summary.deleteWidget($index)"
+                                        title="Delete Widget"><span class="fas fa-times"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-12">
+                    <button type="button" class="btn btn-primary" ui-sref="widgets.add" title="Add Widget"><span
+                            class="fas fa-plus"></span></button>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+<div class="col col-lg-6">
+    <ui-view></ui-view>
 </div>
