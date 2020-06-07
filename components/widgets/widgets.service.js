@@ -7,12 +7,23 @@
 
     widgetsService.$inject = [];
 
-    let widgets = [];
+    let widgets = [
+        {
+            name: 'Hello World',
+            number: 1,
+            pairs: [
+                {
+                    key: 'Pet',
+                    value: 'Dog'
+                }
+            ]
+        }
+    ];
 
     function widgetsService() {
         this.add = (widget) => widgets.push(widget);
-        this.remove = (i) => widgets.splice(i, 1);
-        this.edit = (i, widget) => widgets[i] = widget;
-        this.get = (i) => i ? widgets[i] : widgets;
+        this.delete = (i) => widgets.splice(i, 1);
+        this.update = (i, widget) => widgets[i] = widget;
+        this.get = (i) => i === undefined ? widgets : widgets[i];
     }
 })();
