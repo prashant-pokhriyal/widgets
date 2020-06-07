@@ -1,0 +1,35 @@
+<div class="panel panel-primary">
+    <div class="panel-heading text-center">
+        <div class="panel-title">
+            Widgets Summary
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="widget in summary.widgets">
+                            <td>{{widget.name}}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary"
+                                    ui-sref="widgets.detail({id: $index})">Details</button>
+                                <button type="button" class="btn btn-danger"
+                                    ng-click="summary.deleteWidget($index)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-12">
+                <button type="button" class="btn btn-primary" ui-sref="widgets.add">Add Widget</button>
+            </div>
+        </div>
+    </div>
+</div>
