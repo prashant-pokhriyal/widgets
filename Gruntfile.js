@@ -90,15 +90,11 @@ module.exports = function (grunt) {
             expand: true,
             src: [
               'index.html',
-              'api.php',
-              'bankonus.php',
-              'mail.payment.html',
               'components/**/*.html',
               'dist/**/*.min.css',
               'dist/**/*.min.js',
               'fonts/**',
               'images/**',
-              // 'vendor/**',
               'composer.json',
             ],
             dest: 'build/',
@@ -125,12 +121,12 @@ module.exports = function (grunt) {
         options: {
           replacements: [
             {
-              pattern: '<script src="dist/bankonus-1.0.0.js"></script>',
-              replacement: '<script src="dist/bankonus-1.0.0.min.js"></script>',
+              pattern: '<script src="dist/<%= pkg.name %>-<%= pkg.version %>.js"></script>',
+              replacement: '<script src="dist/<%= pkg.name %>-<%= pkg.version %>.min.js"></script>',
             },
             {
               pattern: '<base href="/" />',
-              replacement: '<base href="/Development/bankonus/" />',
+              replacement: '<base href="/" />',
             },
           ]
         }
