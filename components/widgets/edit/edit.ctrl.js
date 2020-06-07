@@ -11,8 +11,8 @@
         const vm = this;
         vm.id = $stateParams.id;
         vm.data = widgetsService.get(vm.id);
-        vm.saveWidget = () => {
-            widgetsService.add(vm.data);
+        vm.updateWidget = () => {
+            widgetsService.update(vm.id, vm.data);
             $state.go('widgets.summary.detail', { id: vm.id });
         };
         vm.addPair = (i) => vm.data.pairs.splice(i + 1, 0, { key: '', value: '' });
